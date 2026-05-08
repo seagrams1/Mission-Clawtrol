@@ -1,110 +1,47 @@
-<!-- Full cyberpunk rebuild -->
 <template>
-  <div class="min-h-screen bg-[#0a0a0a] text-[#00f7ff] font-mono relative overflow-hidden">
-    <!-- CRT scanlines overlay -->
-    <div class="scanlines absolute inset-0 pointer-events-none"></div>
-
-    <!-- Header -->
-    <header class="border-b border-[#00f7ff]/30 bg-black/90 backdrop-blur-md p-4 flex items-center justify-between z-20 relative">
-      <div class="flex items-center gap-3">
-        <h1 class="text-4xl font-bold tracking-[4px] neon-text">MISSION CLAWTROL</h1>
-      </div>
-      <nav class="flex gap-1">
-        <button @click="currentTab = 'office'" :class="{ 'bg-[#00f7ff]/10 border-[#00f7ff]' : currentTab === 'office', 'border-transparent' : true }" class="px-8 py-3 border text-sm font-medium transition-all hover:bg-[#ff00aa]/10">
-          VISUAL OFFICE
-        </button>
-        <button @click="currentTab = 'team'" :class="{ 'bg-[#00f7ff]/10 border-[#00f7ff]' : currentTab === 'team' }" class="px-8 py-3 border text-sm font-medium transition-all hover:bg-[#ff00aa]/10">
-          TEAM
-        </button>
-        <button @click="currentTab = 'tasks'" :class="{ 'bg-[#00f7ff]/10 border-[#00f7ff]' : currentTab === 'tasks' }" class="px-8 py-3 border text-sm font-medium transition-all hover:bg-[#ff00aa]/10">
-          TASKS
-        </button>
-      </nav>
-      <div class="flex items-center gap-3 text-emerald-400">
-        <div class="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
-        OPENCLAW • LIVE
-      </div>
-    </header>
-
-    <main class="p-8 relative z-10">
-      <h2 class="text-3xl mb-8 neon-text flex items-center gap-4">
-        <span class="text-[#ff00aa]">◼</span> VISUAL OFFICE
-      </h2>
-
-      <!-- Visual Office - Cyberpunk Desk Grid -->
-      <div class="grid grid-cols-3 gap-8">
-        <!-- Agent 1 -->
-        <div class="cyber-card rounded-2xl p-6 transition-all hover:scale-105 group">
-          <div class="flex justify-between">
-            <div>
-              <div class="text-xl font-bold">Claw-7</div>
-              <div class="text-[#ff00aa] text-sm">Lead Operator</div>
-            </div>
-            <div class="text-4xl">🔥</div>
-          </div>
-          <div class="my-6 h-64 bg-[#111] rounded-xl flex items-center justify-center text-8xl border-2 border-dashed border-[#00f7ff]/50 group-hover:border-[#ff00aa] transition-colors relative">
-            <!-- Pixel character with subtle nudity hint -->
-            <div class="text-6xl">🧬</div>
-            <div class="absolute bottom-4 left-4 text-xs bg-black/70 px-3 py-1 rounded text-[#39ff14]">WORKING</div>
-          </div>
-          <div class="flex items-center justify-between text-sm">
-            <span class="text-[#39ff14] flex items-center gap-1"><span class="animate-pulse">●</span> ACTIVE</span>
-          </div>
+  <div class="min-h-screen bg-[#0a0a0a] text-[#a0f0ff] font-mono crt overflow-hidden">
+    <div class="max-w-screen-2xl mx-auto p-8">
+      <!-- Header -->
+      <div class="flex items-center justify-between mb-10 border-b border-cyan-400/30 pb-6">
+        <div>
+          <h1 class="text-5xl font-black tracking-[4px] neon-pink">MISSION CLAWTROL</h1>
+          <p class="text-cyan-300 text-sm tracking-widest">OPENCLAW COMMAND CENTER</p>
         </div>
-
-        <!-- Agent 2 -->
-        <div class="cyber-card rounded-2xl p-6 transition-all hover:scale-105 group">
-          <div class="flex justify-between">
-            <div>
-              <div class="text-xl font-bold">Neon</div>
-              <div class="text-[#ff00aa] text-sm">Data Ghost</div>
-            </div>
-            <div class="text-4xl">👾</div>
-          </div>
-          <div class="my-6 h-64 bg-[#111] rounded-xl flex items-center justify-center text-8xl border-2 border-dashed border-[#00f7ff]/50 group-hover:border-[#ff00aa] transition-colors relative">
-            <div class="text-6xl">👤</div>
-            <div class="absolute bottom-4 left-4 text-xs bg-black/70 px-3 py-1 rounded text-[#39ff14]">WORKING</div>
-          </div>
-          <div class="flex items-center justify-between text-sm">
-            <span class="text-[#39ff14] flex items-center gap-1"><span class="animate-pulse">●</span> ACTIVE</span>
-          </div>
-        </div>
-
-        <!-- Agent 3 -->
-        <div class="cyber-card rounded-2xl p-6 transition-all hover:scale-105 group">
-          <div class="flex justify-between">
-            <div>
-              <div class="text-xl font-bold">Vortex</div>
-              <div class="text-amber-400 text-sm">Execution</div>
-            </div>
-            <div class="text-4xl">⚡</div>
-          </div>
-          <div class="my-6 h-64 bg-[#111] rounded-xl flex items-center justify-center text-8xl border-2 border-dashed border-[#00f7ff]/50 group-hover:border-[#ff00aa] transition-colors relative">
-            <div class="text-6xl">⚙️</div>
-            <div class="absolute bottom-4 left-4 text-xs bg-black/70 px-3 py-1 rounded text-amber-400">IDLE</div>
-          </div>
-          <div class="flex items-center justify-between text-sm">
-            <span class="text-amber-400 flex items-center gap-1">○ IDLE</span>
-          </div>
+        <div class="flex gap-3">
+          <button @click="currentTab = 'office'" :class="{ 'neon-cyan border-cyan-400 bg-black/80' : currentTab === 'office', 'border-gray-600' : currentTab !== 'office' }" class="px-8 py-3 border text-lg font-medium transition-all">VISUAL OFFICE</button>
+          <button @click="currentTab = 'team'" :class="{ 'neon-pink border-pink-400 bg-black/80' : currentTab === 'team', 'border-gray-600' : currentTab !== 'team' }" class="px-8 py-3 border text-lg font-medium transition-all">TEAM</button>
+          <button @click="currentTab = 'tasks'" :class="{ 'neon-yellow border-yellow-400 bg-black/80' : currentTab === 'tasks', 'border-gray-600' : currentTab !== 'tasks' }" class="px-8 py-3 border text-lg font-medium transition-all">TASKS</button>
         </div>
       </div>
-    </main>
 
-    <footer class="fixed bottom-0 left-0 right-0 bg-black/90 border-t border-[#00f7ff]/20 p-4 text-xs flex justify-between text-[#00f7ff]/70">
-      <div>Connected to ~/.openclaw/workspace</div>
-      <div class="flex gap-6">
-        <button class="hover:text-white transition-colors">PULL LIVE DATA</button>
-        <button class="hover:text-white transition-colors">SYNC AGENTS</button>
+      <div v-if="currentTab === 'office'">
+        <h2 class="text-4xl mb-8 neon-cyan flex items-center gap-4">
+          <span class="text-5xl">🖥️</span> VISUAL OFFICE
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <!-- Agent 1 -->
+          <div class="bg-zinc-950 border border-cyan-500/60 rounded-2xl p-6 hover:border-pink-500 transition-all group">
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="text-7xl mb-3">🔥</div>
+                <h3 class="text-2xl">Claw-7</h3>
+                <p class="text-pink-400">Lead Operator</p>
+              </div>
+              <div class="text-green-400 text-sm font-bold">WORKING</div>
+            </div>
+            <div class="h-40 bg-black/80 rounded-xl mt-6 flex items-center justify-center text-8xl group-hover:scale-110 transition-transform">
+              👾
+            </div>
+          </div>
+          <!-- More agents can be added similarly -->
+        </div>
       </div>
-    </footer>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+
 const currentTab = ref('office')
 </script>
-
-<style scoped>
-/* Extra cyberpunk polish */
-</style>
