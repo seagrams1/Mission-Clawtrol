@@ -1,42 +1,48 @@
 <template>
-  <div class="min-h-screen bg-zinc-950 text-cyan-300 font-mono">
-    <!-- Cyberpunk header -->
-    <header class="border-b border-cyan-500/30 bg-black/80 backdrop-blur-md py-3 px-6 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="text-2xl font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-500">
-          MISSION CLAWTROL
-        </div>
+  <div class="min-h-screen bg-[#0a0a0a] text-[#00f7ff] font-mono flex">
+    <!-- Sidebar -->
+    <div class="w-64 bg-black/90 border-r border-[#00f7ff]/30 p-6 flex flex-col">
+      <div class="flex items-center gap-3 mb-10">
+        <div class="w-9 h-9 bg-[#ff00aa] text-black font-bold text-3xl flex items-center justify-center rounded">C</div>
+        <h1 class="text-3xl tracking-[3px] font-bold text-white">MISSION CLAWTROL</h1>
       </div>
-      <nav class="flex gap-8 text-sm">
+
+      <nav class="space-y-2 flex-1">
         <button @click="currentTab = 'office'" 
-                :class="{ 'text-pink-400 border-b-2 border-pink-400': currentTab === 'office' }"
-                class="pb-1 hover:text-pink-400 transition-colors">
-          VISUAL OFFICE
+                :class="{ 'bg-[#00f7ff]/10 border-[#00f7ff] text-white': currentTab === 'office' }"
+                class="w-full text-left px-5 py-4 rounded-xl border border-transparent hover:border-[#00f7ff]/50 flex items-center gap-3 text-lg transition-colors">
+          🖥️ Visual Office
         </button>
         <button @click="currentTab = 'team'" 
-                :class="{ 'text-pink-400 border-b-2 border-pink-400': currentTab === 'team' }"
-                class="pb-1 hover:text-pink-400 transition-colors">
-          TEAM
+                :class="{ 'bg-[#00f7ff]/10 border-[#00f7ff] text-white': currentTab === 'team' }"
+                class="w-full text-left px-5 py-4 rounded-xl border border-transparent hover:border-[#00f7ff]/50 flex items-center gap-3 text-lg transition-colors">
+          👥 Team
         </button>
         <button @click="currentTab = 'tasks'" 
-                :class="{ 'text-pink-400 border-b-2 border-pink-400': currentTab === 'tasks' }"
-                class="pb-1 hover:text-pink-400 transition-colors">
-          TASKS
+                :class="{ 'bg-[#00f7ff]/10 border-[#00f7ff] text-white': currentTab === 'tasks' }"
+                class="w-full text-left px-5 py-4 rounded-xl border border-transparent hover:border-[#00f7ff]/50 flex items-center gap-3 text-lg transition-colors">
+          📋 Tasks
         </button>
       </nav>
-    </header>
 
-    <main class="p-6">
-      <component :is="currentComponent" />
-    </main>
+      <div class="text-xs text-[#00f7ff]/50 mt-auto pt-8">
+        <div>OPENCLAW • LIVE</div>
+        <div class="text-emerald-400 flex items-center gap-1.5">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-400"></span>
+          </span>
+          CONNECTED
+        </div>
+      </div>
+    </div>
 
-    <footer class="fixed bottom-0 left-0 right-0 bg-black/90 border-t border-cyan-500/30 py-2 px-6 text-xs flex justify-between items-center">
-      <div>Connected to OpenClaw • Live Sync</div>
-      <button @click="pullLiveData" 
-              class="px-4 py-1 bg-gradient-to-r from-cyan-500 to-pink-500 text-black font-bold rounded hover:brightness-110 transition">
-        PULL LIVE DATA
-      </button>
-    </footer>
+    <!-- Main Content -->
+    <div class="flex-1 p-10 overflow-auto">
+      <VisualOffice v-if="currentTab === 'office'" />
+      <TeamView v-else-if="currentTab === 'team'" />
+      <TasksView v-else-if="currentTab === 'tasks'" />
+    </div>
   </div>
 </template>
 
@@ -46,22 +52,5 @@ import VisualOffice from './components/VisualOffice.vue'
 import TeamView from './components/TeamView.vue'
 import TasksView from './components/TasksView.vue'
 
-// Tab state
 const currentTab = ref('office')
-
-const currentComponent = computed(() => {
-  if (currentTab.value === 'team') return TeamView
-  if (currentTab.value === 'tasks') return TasksView
-  return VisualOffice
-})
-
-const pullLiveData = () => {
-  alert('🔥 Live sync with ~/.openclaw/ coming in Phase 2!')
-}
 </script>
-
-<style>
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-</style>
