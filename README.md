@@ -1,10 +1,5 @@
 # Mission Clawtrol
 
-Cyberpunk command center dashboard for OpenClaw agent.
+Repository has been reset for a clean start.
 
-## Tech Stack
-- Vue 3 + Vite
-- Tailwind CSS
-- Cyberpunk aesthetic
-
-Live connected to OpenClaw workspace.
+Ready for new development.
