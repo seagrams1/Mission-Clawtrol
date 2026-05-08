@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
@@ -8,14 +11,9 @@ export default {
           cyan: '#00f7ff',
           pink: '#ff00aa',
           purple: '#9d00ff',
-          green: '#00ff9d',
+          green: '#39ff14'
         }
-      },
-      fontFamily: {
-        mono: ['VT323', 'monospace'],
-        cyber: ['Courier New', 'monospace']
       }
-    },
-  },
-  plugins: [],
+    }
+  }
 }
