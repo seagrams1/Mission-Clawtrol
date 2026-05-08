@@ -1,14 +1,15 @@
-<!-- Tasks View -->
 <template>
-  <div class="tasks-view">
-    <h2 class="neon-text">TASKS</h2>
-    <div class="task-list">
-      <div v-for="task in tasks" :key="task.id" class="task-item">
-        <div class="task-header">
-          <span>{{ task.title }}</span>
-          <span class="status-badge" :class="task.status">{{ task.status.toUpperCase() }}</span>
+  <div>
+    <h2 class="text-4xl mb-6 tracking-widest text-white neon-text">TASKS</h2>
+    <div class="space-y-4">
+      <div v-for="task in tasks" :key="task.id" class="bg-black/70 border border-cyan-400/20 p-6 rounded-xl flex justify-between items-center">
+        <div>
+          <div class="font-medium text-lg">{{ task.title }}</div>
+          <div class="text-xs text-cyan-300">Assigned to: {{ task.assignee }}</div>
         </div>
-        <p class="task-desc">{{ task.description }}</p>
+        <div class="px-5 py-1.5 rounded-3xl text-sm font-medium" :class="task.status === 'In Progress' ? 'bg-pink-500 text-white' : 'bg-emerald-400 text-black'">
+          {{ task.status }}
+        </div>
       </div>
     </div>
   </div>
@@ -18,17 +19,8 @@
 import { ref } from 'vue'
 
 const tasks = ref([
-  { id: 1, title: 'Monitor memory logs', description: 'Parse latest daily memory file', status: 'in-progress' },
-  { id: 2, title: 'Update AGENTS.md', description: 'Sync agent states', status: 'pending' }
+  { id: 1, title: 'Analyze user intent patterns', assignee: 'Claw-7', status: 'In Progress' },
+  { id: 2, title: 'Update daily memory log', assignee: 'Neon', status: 'Pending' },
+  { id: 3, title: 'Optimize coordination protocols', assignee: 'Vortex', status: 'Completed' }
 ])
 </script>
-
-<style scoped>
-.tasks-view { padding: 20px; }
-.task-item {
-  background: #0f0f0f;
-  margin-bottom: 15px;
-  padding: 15px;
-  border: 1px solid #00ff88;
-}
-</style>
