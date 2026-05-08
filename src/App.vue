@@ -1,77 +1,34 @@
 <template>
-  <div class="min-h-screen bg-zinc-950 text-cyan-400 font-mono">
-    <!-- Header -->
-    <div class="border-b border-cyan-500/30 bg-black/80 backdrop-blur-md p-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <h1 class="text-3xl font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">MISSION CLAWTROL</h1>
-      </div>
-      <div class="flex gap-2">
-        <button class="px-6 py-2 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-400 text-emerald-400 rounded font-medium transition-colors">VISUAL OFFICE</button>
-        <button class="px-6 py-2 hover:bg-zinc-800 border border-transparent text-zinc-400 hover:text-white rounded font-medium transition-colors">TEAM</button>
-        <button class="px-6 py-2 hover:bg-zinc-800 border border-transparent text-zinc-400 hover:text-white rounded font-medium transition-colors">TASKS</button>
-      </div>
-      <div class="flex items-center gap-2 text-emerald-400 text-sm">
-        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-        OPENCLAW • LIVE
-      </div>
-    </div>
+  <div class="min-h-screen bg-[#0a0a0a] text-[#00ffff] crt">
+    <div class="max-w-7xl mx-auto p-6">
+      <header class="flex justify-between items-center mb-8 border-b border-[#ff00ff]/30 pb-4">
+        <h1 class="text-4xl font-bold tracking-widest neon-pink">MISSION CLAWTROL</h1>
+        <div class="flex gap-2">
+          <button class="px-6 py-2 bg-black border border-[#00ffff] text-[#00ffff] hover:bg-[#00ffff] hover:text-black transition-colors">VISUAL OFFICE</button>
+          <button class="px-6 py-2 bg-black border border-[#ff00ff] text-[#ff00ff] hover:bg-[#ff00ff] hover:text-black transition-colors">TEAM</button>
+          <button class="px-6 py-2 bg-black border border-[#ffff00] text-[#ffff00] hover:bg-[#ffff00] hover:text-black transition-colors">TASKS</button>
+        </div>
+      </header>
 
-    <div class="p-6">
-      <h2 class="text-2xl mb-6 text-cyan-300 tracking-widest flex items-center gap-3">
-        <span class="text-purple-400">◼</span> VISUAL OFFICE
-      </h2>
+      <div class="mb-4 flex items-center gap-3">
+        <div class="px-4 py-1 bg-green-900/50 text-green-400 text-sm font-mono flex items-center gap-2 border border-green-400/50">
+          ● OPENCLAW • LIVE
+        </div>
+      </div>
 
-      <!-- Visual Office Grid -->
+      <h2 class="text-3xl font-bold neon-cyan mb-6">VISUAL OFFICE</h2>
+
+      <!-- Simple agent grid for now -->
       <div class="grid grid-cols-3 gap-6">
-        <!-- Agent cards with cyberpunk feel -->
-        <div class="bg-zinc-900 border border-cyan-500/30 rounded-xl p-6 hover:border-purple-400 transition-all group">
-          <div class="flex justify-between items-start mb-4">
-            <div>
-              <div class="text-lg font-semibold text-white">Claw-7</div>
-              <div class="text-purple-400 text-sm">Lead Operator</div>
-            </div>
-            <div class="text-3xl">🔥</div>
-          </div>
-          <div class="h-48 bg-black/70 rounded-xl flex items-center justify-center text-6xl border border-dashed border-cyan-400/30 group-hover:border-purple-400 transition-colors">
-            🧬
-          </div>
-          <div class="mt-4 text-emerald-400 text-sm font-medium flex items-center gap-2">
-            <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-            WORKING
+        <div class="bg-black/70 border border-[#00ffff]/50 p-6 rounded-xl hover:border-[#ff00ff] transition-colors">
+          <div class="text-center">
+            <div class="text-6xl mb-2">🔥</div>
+            <p class="text-lg font-mono">Claw-7</p>
+            <p class="text-sm text-[#ff00ff]">Lead Operator</p>
+            <p class="text-green-400 text-sm mt-4">WORKING</p>
           </div>
         </div>
-
-        <!-- More agent slots -->
-        <div class="bg-zinc-900 border border-cyan-500/30 rounded-xl p-6 hover:border-purple-400 transition-all">
-          <div class="flex justify-between items-start mb-4">
-            <div>
-              <div class="text-lg font-semibold text-white">Neon</div>
-              <div class="text-pink-400 text-sm">Data Ghost</div>
-            </div>
-            <div class="text-3xl">👾</div>
-          </div>
-          <div class="h-48 bg-black/70 rounded-xl flex items-center justify-center text-6xl border border-dashed border-cyan-400/30">
-            👤
-          </div>
-          <div class="mt-4 text-emerald-400 text-sm font-medium flex items-center gap-2">
-            <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-            WORKING
-          </div>
-        </div>
-
-        <div class="bg-zinc-900 border border-amber-500/30 rounded-xl p-6 hover:border-amber-400 transition-all">
-          <div class="flex justify-between items-start mb-4">
-            <div>
-              <div class="text-lg font-semibold text-white">Vortex</div>
-              <div class="text-amber-400 text-sm">Execution</div>
-            </div>
-            <div class="text-3xl">⚡</div>
-          </div>
-          <div class="h-48 bg-black/70 rounded-xl flex items-center justify-center text-6xl border border-dashed border-cyan-400/30">
-            ⚙️
-          </div>
-          <div class="mt-4 text-amber-400 text-sm font-medium">IDLE</div>
-        </div>
+        <!-- Add more agents -->
       </div>
     </div>
   </div>
@@ -79,7 +36,3 @@
 
 <script setup>
 </script>
-
-<style scoped>
-/* Additional custom styles can go here */
-</style>
