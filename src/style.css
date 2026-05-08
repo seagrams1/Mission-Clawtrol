@@ -1,21 +1,14 @@
-/* Mission Clawtrol - Cyberpunk Style */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'VT323', monospace;
-}
-
-.crt {
-  animation: crt-flicker 0.15s infinite alternate;
-}
-
-@keyframes crt-flicker {
-  0% { opacity: 1; }
-  100% { opacity: 0.98; }
+@layer base {
+  body {
+    font-family: 'Courier New', monospace;
+  }
 }
 
 .neon-text {
-  text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+  text-shadow: 0 0 10px rgb(165 243 252),
+               0 0 20px rgb(165 243 252);
 }

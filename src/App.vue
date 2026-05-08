@@ -1,56 +1,85 @@
 <template>
-  <div class="min-h-screen bg-[#0a0a0a] text-[#00f7ff] font-mono flex">
-    <!-- Sidebar -->
-    <div class="w-64 bg-black/90 border-r border-[#00f7ff]/30 p-6 flex flex-col">
-      <div class="flex items-center gap-3 mb-10">
-        <div class="w-9 h-9 bg-[#ff00aa] text-black font-bold text-3xl flex items-center justify-center rounded">C</div>
-        <h1 class="text-3xl tracking-[3px] font-bold text-white">MISSION CLAWTROL</h1>
+  <div class="min-h-screen bg-zinc-950 text-cyan-400 font-mono">
+    <!-- Header -->
+    <div class="border-b border-cyan-500/30 bg-black/80 backdrop-blur-md p-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <h1 class="text-3xl font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">MISSION CLAWTROL</h1>
       </div>
-
-      <nav class="space-y-2 flex-1">
-        <button @click="currentTab = 'office'" 
-                :class="{ 'bg-[#00f7ff]/10 border-[#00f7ff] text-white': currentTab === 'office' }"
-                class="w-full text-left px-5 py-4 rounded-xl border border-transparent hover:border-[#00f7ff]/50 flex items-center gap-3 text-lg transition-colors">
-          🖥️ Visual Office
-        </button>
-        <button @click="currentTab = 'team'" 
-                :class="{ 'bg-[#00f7ff]/10 border-[#00f7ff] text-white': currentTab === 'team' }"
-                class="w-full text-left px-5 py-4 rounded-xl border border-transparent hover:border-[#00f7ff]/50 flex items-center gap-3 text-lg transition-colors">
-          👥 Team
-        </button>
-        <button @click="currentTab = 'tasks'" 
-                :class="{ 'bg-[#00f7ff]/10 border-[#00f7ff] text-white': currentTab === 'tasks' }"
-                class="w-full text-left px-5 py-4 rounded-xl border border-transparent hover:border-[#00f7ff]/50 flex items-center gap-3 text-lg transition-colors">
-          📋 Tasks
-        </button>
-      </nav>
-
-      <div class="text-xs text-[#00f7ff]/50 mt-auto pt-8">
-        <div>OPENCLAW • LIVE</div>
-        <div class="text-emerald-400 flex items-center gap-1.5">
-          <span class="relative flex h-3 w-3">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-400"></span>
-          </span>
-          CONNECTED
-        </div>
+      <div class="flex gap-2">
+        <button class="px-6 py-2 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-400 text-emerald-400 rounded font-medium transition-colors">VISUAL OFFICE</button>
+        <button class="px-6 py-2 hover:bg-zinc-800 border border-transparent text-zinc-400 hover:text-white rounded font-medium transition-colors">TEAM</button>
+        <button class="px-6 py-2 hover:bg-zinc-800 border border-transparent text-zinc-400 hover:text-white rounded font-medium transition-colors">TASKS</button>
+      </div>
+      <div class="flex items-center gap-2 text-emerald-400 text-sm">
+        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+        OPENCLAW • LIVE
       </div>
     </div>
 
-    <!-- Main Content -->
-    <div class="flex-1 p-10 overflow-auto">
-      <VisualOffice v-if="currentTab === 'office'" />
-      <TeamView v-else-if="currentTab === 'team'" />
-      <TasksView v-else-if="currentTab === 'tasks'" />
+    <div class="p-6">
+      <h2 class="text-2xl mb-6 text-cyan-300 tracking-widest flex items-center gap-3">
+        <span class="text-purple-400">◼</span> VISUAL OFFICE
+      </h2>
+
+      <!-- Visual Office Grid -->
+      <div class="grid grid-cols-3 gap-6">
+        <!-- Agent cards with cyberpunk feel -->
+        <div class="bg-zinc-900 border border-cyan-500/30 rounded-xl p-6 hover:border-purple-400 transition-all group">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <div class="text-lg font-semibold text-white">Claw-7</div>
+              <div class="text-purple-400 text-sm">Lead Operator</div>
+            </div>
+            <div class="text-3xl">🔥</div>
+          </div>
+          <div class="h-48 bg-black/70 rounded-xl flex items-center justify-center text-6xl border border-dashed border-cyan-400/30 group-hover:border-purple-400 transition-colors">
+            🧬
+          </div>
+          <div class="mt-4 text-emerald-400 text-sm font-medium flex items-center gap-2">
+            <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+            WORKING
+          </div>
+        </div>
+
+        <!-- More agent slots -->
+        <div class="bg-zinc-900 border border-cyan-500/30 rounded-xl p-6 hover:border-purple-400 transition-all">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <div class="text-lg font-semibold text-white">Neon</div>
+              <div class="text-pink-400 text-sm">Data Ghost</div>
+            </div>
+            <div class="text-3xl">👾</div>
+          </div>
+          <div class="h-48 bg-black/70 rounded-xl flex items-center justify-center text-6xl border border-dashed border-cyan-400/30">
+            👤
+          </div>
+          <div class="mt-4 text-emerald-400 text-sm font-medium flex items-center gap-2">
+            <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+            WORKING
+          </div>
+        </div>
+
+        <div class="bg-zinc-900 border border-amber-500/30 rounded-xl p-6 hover:border-amber-400 transition-all">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <div class="text-lg font-semibold text-white">Vortex</div>
+              <div class="text-amber-400 text-sm">Execution</div>
+            </div>
+            <div class="text-3xl">⚡</div>
+          </div>
+          <div class="h-48 bg-black/70 rounded-xl flex items-center justify-center text-6xl border border-dashed border-cyan-400/30">
+            ⚙️
+          </div>
+          <div class="mt-4 text-amber-400 text-sm font-medium">IDLE</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import VisualOffice from './components/VisualOffice.vue'
-import TeamView from './components/TeamView.vue'
-import TasksView from './components/TasksView.vue'
-
-const currentTab = ref('office')
 </script>
+
+<style scoped>
+/* Additional custom styles can go here */
+</style>
