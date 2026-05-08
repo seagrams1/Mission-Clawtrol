@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cyberpunk base styles */
+:root {
+  --neon-cyan: #00f7ff;
+  --neon-pink: #ff00aa;
+  --neon-purple: #9d00ff;
+}
+
+body {
+  font-family: 'Courier New', monospace;
+  background: #0a0a0a;
+  color: #00f7ff;
+}
+
+.crt {
+  animation: crt-flicker 0.15s infinite linear alternate;
+}
