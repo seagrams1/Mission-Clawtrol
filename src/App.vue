@@ -1,91 +1,74 @@
-&lt;template&gt;
-  &lt;div class="mission-clawtrol"&gt;
-    &lt;header class="header"&gt;
-      &lt;h1&gt;MISSION CLAWTROL&lt;/h1&gt;
-      &lt;div class="status"&gt;
-        OPENC LAW • LIVE
-        &lt;span class="live-dot"&gt;●&lt;/span&gt;
-      &lt;/div&gt;
-    &lt;/header&gt;
+<template>
+  <div class="mission-clawtrol">
+    <header>
+      <h1>MISSION CLAWTROL</h1>
+    </header>
 
-    &lt;nav class="sidebar"&gt;
-      &lt;button @click="currentTab = 'visual-office'" 
-              :class="{ active: currentTab === 'visual-office' }"&gt;
-        VISUAL OFFICE
-      &lt;/button&gt;
-      &lt;button @click="currentTab = 'team'" 
-              :class="{ active: currentTab === 'team' }"&gt;
-        TEAM
-      &lt;/button&gt;
-      &lt;button @click="currentTab = 'tasks'" 
-              :class="{ active: currentTab === 'tasks' }"&gt;
-        TASKS
-      &lt;/button&gt;
-    &lt;/nav&gt;
+    <div class="main-container">
+      <!-- Vertical Sidebar -->
+      <nav class="sidebar">
+        <button @click="currentView = 'visual-office'" :class="{ active: currentView === 'visual-office' }">
+          📟 Visual Office
+        </button>
+        <button @click="currentView = 'team'" :class="{ active: currentView === 'team' }">
+          👥 Team
+        </button>
+        <button @click="currentView = 'tasks'" :class="{ active: currentView === 'tasks' }">
+          ✅ Tasks
+        </button>
+      </nav>
 
-    &lt;main class="content"&gt;
-      &lt;VisualOffice v-if="currentTab === 'visual-office'" /&gt;
-      &lt;TeamView v-else-if="currentTab === 'team'" /&gt;
-      &lt;TasksView v-else-if="currentTab === 'tasks'" /&gt;
-    &lt;/main&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+      <main class="content">
+        <VisualOffice v-if="currentView === 'visual-office'" />
+        <TeamView v-else-if="currentView === 'team'" />
+        <TasksView v-else-if="currentView === 'tasks'" />
+      </main>
+    </div>
+  </div>
+</template>
 
-&lt;script setup&gt;
-import { ref } from 'vue';
-import VisualOffice from './components/VisualOffice.vue';
-import TeamView from './components/TeamView.vue';
-import TasksView from './components/TasksView.vue';
+<script setup>
+import { ref } from 'vue'
+import VisualOffice from './components/VisualOffice.vue'
+import TeamView from './components/TeamView.vue'
+import TasksView from './components/TasksView.vue'
 
-const currentTab = ref('visual-office');
-&lt;/script&gt;
+const currentView = ref('visual-office')
+</script>
 
-&lt;style&gt;
-/* Basic dark cyberpunk styles */
+<style scoped>
 .mission-clawtrol {
   background: #0a0a0a;
   color: #00ffcc;
-  font-family: monospace;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  font-family: monospace;
 }
-.header {
-  background: #111;
-  padding: 1rem;
-  border-bottom: 2px solid #ff00ff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 .sidebar {
   background: #111;
-  width: 220px;
-  padding: 1rem 0;
+  border-right: 3px solid #ff00aa;
+  padding: 20px 10px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  border-right: 2px solid #00ffff;
+  gap: 12px;
+  width: 220px;
 }
-.sidebar button {
+
+button {
   background: transparent;
-  border: 2px solid #00ffff;
-  color: #00ffff;
-  padding: 14px 20px;
+  border: 2px solid #00ffcc;
+  color: #00ffcc;
+  padding: 16px;
   font-size: 1.1rem;
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 2px;
   transition: all 0.3s;
+  text-shadow: 0 0 10px #00ffcc;
 }
-.sidebar button:hover, .sidebar button.active {
-  background: #00ffff;
-  color: #000;
-  box-shadow: 0 0 20px #00ffff;
+
+button:hover, button.active {
+  background: #ff00aa;
+  color: white;
+  box-shadow: 0 0 20px #ff00aa;
+  transform: scale(1.05);
 }
-.content {
-  flex: 1;
-  padding: 2rem;
-  overflow: auto;
-}
-&lt;/style&gt;
+</style>
